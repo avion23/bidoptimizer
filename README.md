@@ -79,7 +79,3 @@ This will run the test cases defined in `test_excel_loader.py`.
 
 ## License <a name="license"></a>
 
-Add license information here if any.
-```
-
-This README.md gives a comprehensive overview of the project and detailed instructions for common tasks. Make sure to replace placeholder text like `<repo-url>`, `<path-to-excel-file>`, and `<forked-repo-url>` with actual URLs or paths. Also, replace "Add license information here if any" with your actual license info, if you have one.
