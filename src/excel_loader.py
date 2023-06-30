@@ -6,9 +6,9 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class ExcelLoader:
+    SHEETS_TO_CHECK = ['How To', 'Bulkdatensammlung', 'SPA', 'SB', 'SD', 'KPIs', 'Dashboard', 'Auswertung']
     def __init__(self, file_path):
         self.file_path = file_path
-        self.sheets_to_check = ['How To', 'Bulkdatensammlung', 'SPA', 'SB', 'SD', 'KPIs', 'Dashboard', 'Auswertung']
 
     def load(self):
         try:
@@ -35,7 +35,7 @@ class ExcelLoader:
         try:
             logger.info('Starting sheet check.')
             workbook = load_workbook(filename=self.file_path, read_only=True)
-            missing_sheets = [sheet for sheet in self.sheets_to_check if sheet not in workbook.sheetnames]
+            missing_sheets = [sheet for sheet in self.SHEETS_TO_CHECK if sheet not in workbook.sheetnames]
             if missing_sheets:
                 logger.warning(f'Missing sheets in Excel file: {missing_sheets}')
                 return False

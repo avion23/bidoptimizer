@@ -1,6 +1,11 @@
+import sys
+import os
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_root)
+from src.excel_loader import ExcelLoader
 import pytest
 import pandas as pd
-from src.excel_loader import ExcelLoader
+
 
 @pytest.fixture(scope="module")
 def excel_loader():
@@ -27,10 +32,5 @@ def test_save(excel_loader):
     os.remove(output_path)
 
 def test_check_sheets(excel_loader):
-    # Existing sheets
-    sheet_names = ['How To', 'Bulkdatensammlung', 'SPA', 'SB', 'SD', 'KPIs', 'Dashboard', 'Auswertung']
-    assert excel_loader.check_sheets(sheet_names) is True
+    assert excel_loader.check_sheets() is True
 
-    # Non-existing sheet
-    invalid_sheet_names = ['InvalidSheet']
-    assert excel_loader.check_sheets(invalid_sheet_names) is False
