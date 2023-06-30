@@ -1,6 +1,4 @@
-Certainly, here's your updated `README.md` file with instructions on how to clone the repository, commit and push changes, run the tests, run the main function, and a Table of Contents at the top:
 
-```markdown
 # BidOptimizer
 
 ## Table of Contents
@@ -37,7 +35,7 @@ BidOptimizer is a Python application designed to process Excel files. It loads a
 After installation, you can run the application from the command line with:
 
 ```bash
-bidoptimizer <path-to-excel-file>
+bidoptimizer --input <path-to-input-excel-file> --output <path-to-output-excel-file>
 ```
 
 This command will run the `main` function of the `main.py` file in the `src` directory, as defined in `setup.py`. The main function should handle the flow of the program, including loading the Excel file, performing calculations, and writing the output back to an Excel file.
