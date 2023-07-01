@@ -7,10 +7,13 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def main():
-    parser = argparse.ArgumentParser(description='Load, check, and save an Excel file.')
+    parser = argparse.ArgumentParser(description='Process an Excel file with predefined calculations.')
     parser.add_argument('--input', required=True, help='Path to the input Excel file.')
-    parser.add_argument('--output', required=True, help='Path to the output Excel file.')
+    parser.add_argument('--output', help='Path to the output Excel file. If not provided, the input file will be overwritten.')
     args = parser.parse_args()
+
+    if args.output is None:
+        args.output = args.input
 
     loader = ExcelLoader(args.input)
     data = loader.load()
