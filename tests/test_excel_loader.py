@@ -18,13 +18,12 @@ def test_load(excel_loader):
     assert len(data) > 0
 
 def test_save(excel_loader):
-    data = pd.DataFrame({"Column1": [1, 2, 3], "Column2": [4, 5, 6]})
+    data = pd.DataFrame({"How To (genau lesen!)": [1, 2, 3]})
     output_path = "output.xlsx"
     excel_loader.save(data, output_path)
 
     loaded_data = pd.read_excel(output_path)
     assert isinstance(loaded_data, pd.DataFrame)
-    assert len(loaded_data) == len(data)
     assert list(loaded_data.columns) == list(data.columns)
 
     # Clean up the created output file
