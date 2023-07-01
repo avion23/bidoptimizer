@@ -1,6 +1,7 @@
 import argparse
 import logging
 from excel_loader import ExcelLoader
+from data_processor import DataProcessor
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -13,7 +14,12 @@ def main():
 
     loader = ExcelLoader(args.input)
     data = loader.load()
-    loader.save(data, args.output)
+
+    processor = DataProcessor(data)
+    processed_data = processor.process()
+
+    loader.save(processed_data, args.output)
+
 
 if __name__ == '__main__':
     main()
