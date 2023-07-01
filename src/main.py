@@ -3,7 +3,7 @@ import logging
 from excel_loader import ExcelLoader
 from data_processor import DataProcessor
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 def main():
@@ -17,7 +17,9 @@ def main():
 
     loader = ExcelLoader(args.input)
     data = loader.load()
-
+    if data is None:
+        logger.error('Data could not be loaded. Exiting...')
+        return
     processor = DataProcessor(data)
     processed_data = processor.process()
 
