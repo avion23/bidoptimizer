@@ -5,8 +5,8 @@ from src.data_processor import DataProcessor
 def test_calculations():
     # Create a sample DataFrame
     df = pd.DataFrame({
-        'columnA': [4, 9, 16],
-        'columnB': [2, 3, 4]
+        'Clicks': [4, 9, 16],
+        'Spend': [2, 3, 4]
     })
 
     # Initialize the DataProcessor
@@ -16,5 +16,5 @@ def test_calculations():
     result_df = processor.process()
 
     # Validate the results
-    assert (result_df['column1'] == df['columnA'] * df['columnB']).all()
-    assert (result_df['column2'] == np.sqrt(df['columnA'])).all()
+    assert (result_df['Bid'] == df['Clicks'] * df['Spend']).all()
+    assert (result_df['Aktualitätsindex'] == np.sqrt(df['Spend'])).all()
